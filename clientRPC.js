@@ -32,7 +32,7 @@ if( index+1 == 1 ){
     var numero1 = parseInt(readlineSync.question( 'Primeiro numero:  '));
     var numero2 = parseInt(readlineSync.question('Segundo numero: '));
     var client = qrpc.connect(1337, 'localhost', function() {
-        client.call('mult', { a: 3, b: 4}, function(err, ret) {
+        client.call('mult', { a: numero1, b: numero2}, function(err, ret) {
             console.log("Resultado é :", ret)
         })
      
