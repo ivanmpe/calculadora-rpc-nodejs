@@ -3,14 +3,15 @@ var readlineSync = require('readline-sync');
 
 
 
-opcoes = ['Soma', 'Subtracao', 'Multiplicacao', 'Divisao', 'Raiz Quadrada'],
+opcoes = ['Soma', 'Subtracao', 'Multiplicacao', 'Divisao', 'Raiz Quadrada', 'Ponteciacao'],
     index = readlineSync.keyInSelect(opcoes, 'Escolha uma opcao: ');
 index = index + 1;
 
 
 
 if (index == 1) {
-
+    var numero1 = parseInt(readlineSync.question('Primeiro numero:  '));
+    var numero2 = parseInt(readlineSync.question('Segundo numero: '));
     console.log(' Soma ');
     var client = qrpc.connect(5100, 'localhost', function () {
         client.call('soma', { a: numero1, b: numero2 }, function (err, ret) {
@@ -67,6 +68,19 @@ if (index == 1) {
 
     })
 
-} else {
+} else if (index == 6) {
+    console.log(' Pontenciacao ');
+    var numero1 = parseInt(readlineSync.question(' Digite base:  '));
+    var numero2 = parseInt(readlineSync.question(' Digite expoente:  '));
+
+
+    var client = qrpc.connect(5100, 'localhost', function () {
+        client.call('pon', { a: numero1, b: numero2 }, function (err, ret) {
+            console.log("Resultado é :", ret)
+        })
+
+
+    }) 
+}else {
     console.log("Saindo...");
 }
