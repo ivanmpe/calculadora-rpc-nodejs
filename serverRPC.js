@@ -11,19 +11,19 @@ server.addHandler('soma', function(req, res) {
 server.addHandler('sub', function(req, res) {
     console.log("Operacao subtracao, ID da Chamada " + req.id );
     sub = req.m.a - req.m.b;
-    res.write(sub);     
+;    res.write(sub);     
+
 })
 server.addHandler('mult', function(req, res, next) {
     console.log("Operacao multiplicacao, ID da Chamada " + req.id );
 	var mult = req.m.a * req.m.b;
-    res.write(mult); 
-    res.end();     
+    res.write(mult);      
 })
 
 server.addHandler('div', function(req, res) {
     console.log("Operacao divisao, ID da Chamada " + req.id );
 	var div = req.m.a/req.m.b;
-    res.write(div);      
+    res.write(div);     
 })
 
 server.addHandler('raiz', function(req, res) {
